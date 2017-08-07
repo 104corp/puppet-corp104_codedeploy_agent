@@ -60,7 +60,6 @@ class corp104_codedeploy_agent (
   String $service_ensure,
   Boolean $service_enable,
   String $service_name,
-  String $sanity,
 ){
   contain corp104_codedeploy_agent::install
   contain corp104_codedeploy_agent::config
