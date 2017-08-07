@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    "ruby": "https://github.com/puppetlabs/puppetlabs-ruby"
+  symlinks:
+    "corp104_codedeploy_agent": "#{source_dir}"

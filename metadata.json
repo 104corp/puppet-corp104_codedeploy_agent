@@ -1,0 +1,46 @@
+{
+  "name": "104corp-corp104_codedeploy_agent",
+  "description": "corp104_codedeploy_agent Module for Debian, Ubuntu, CentOS and RHEL.",
+  "version": "0.0.1",
+  "author": "104corp",
+  "summary": "Install, deploysm, and configures AWS agent services.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/104corp/corp104_codedeploy_agent",
+  "project_page": "https://github.com/104corp/corp104_codedeploy_agent",
+  "issues_url": "https://github.com/104corp/corp104_codedeploy_agent/issues",
+    "tags": [
+    "104",
+    "codedeploy_agent",
+    "puppet"
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-ruby",
+      "version_requirement": ">=1.0.0 <2.0.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "4.7.0 < 5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    }
+  ]
+}
+
