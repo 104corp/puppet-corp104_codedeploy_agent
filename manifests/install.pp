@@ -1,5 +1,5 @@
 class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
-  
+
   # fix puppetlabs support Ubuntu 16.04
   case $facts['os']['release']['major'] {
     '16.04': {
@@ -11,7 +11,6 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
       include 'ruby'
     }
   }
-  
 
   exec { 'download_codedeploy-agent':
     command => "/bin/bash -c export https_proxy=${corp104_codedeploy_agent::http_proxy}; wget https://aws-codedeploy-${corp104_codedeploy_agent::region}.s3.amazonaws.com/latest/install -O ${corp104_codedeploy_agent::install_tmp}",
