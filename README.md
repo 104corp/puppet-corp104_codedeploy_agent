@@ -36,7 +36,15 @@ include '::corp104_codedeploy_agent'
 
 ```puppet
 class { 'corp104_codedeploy_agent':
-  http_proxy         => 'http://change.proxy.com:3128',
+  http_proxy => 'http://change.proxy.com:3128',
+}
+```
+
+### codedeploy-agent support Proxy.
+
+```puppet
+class { 'corp104_codedeploy_agent':
+  proxy_uri => 'http://change.proxy.com:3128',
 }
 ```
 

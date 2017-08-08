@@ -54,7 +54,7 @@ class corp104_codedeploy_agent (
   Boolean $verbose,
   Integer $wait_between_runs,
   String $codedeployagent_yml,
-  Optional[String] $http_proxy,
+  Optional[String] $proxy_uri,
   Integer $max_revisions,
   String $codedeploy_onpremises_yml,
   String $service_ensure,
