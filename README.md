@@ -37,7 +37,17 @@ include '::corp104_codedeploy_agent'
 ```puppet
 class { 'corp104_codedeploy_agent':
   http_proxy         => 'http://change.proxy.com:3128',
-  http_proxy_timeout => 60,
+}
+```
+
+### Configure codedeploy.onpremises.yml
+```puppet
+class { 'corp104_codedeploy_agent': }
+class { 'corp104_codedeploy_agent::onpremises': 
+  aws_access_key_id     => 'you-aws-access-key',
+  aws_secret_access_key => 'you-aws-secret-key',
+  iam_user_arn          => 'you-iam-user-arn',
+  region                => 'you-aws-region'
 }
 ```
 
@@ -53,7 +63,8 @@ class { 'corp104_codedeploy_agent':
 
 * corp104_codedeploy_agent::install: Handles the packages.
 * corp104_codedeploy_agent::config: Handles the config.
-* corp104_codedeploy_agent::service: Handles the config.
+* corp104_codedeploy_agent::service: Handles the service.
+* corp104_codedeploy_agent::onpremises: Handles the on-premises config.
 
 ## Limitations
 
