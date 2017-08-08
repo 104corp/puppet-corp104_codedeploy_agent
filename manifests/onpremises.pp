@@ -12,6 +12,6 @@ class corp104_codedeploy_agent::onpremises (
 
   file { $corp104_codedeploy_agent::codedeploy_onpremises_yml:
     ensure  => file,
-    content => template("${module_name}/codedeployagent.onpremises.yml.erb")
+    content => template("${module_name}/codedeploy.onpremises.yml.erb")
   }
 }
