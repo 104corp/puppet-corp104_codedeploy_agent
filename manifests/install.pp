@@ -14,9 +14,9 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
 
   exec { 'download_codedeploy-agent':
     provider => 'shell',
-    command => "export https_proxy=${corp104_codedeploy_agent::http_proxy}; wget https://aws-codedeploy-${corp104_codedeploy_agent::region}.s3.amazonaws.com/latest/install -O ${corp104_codedeploy_agent::install_tmp}",
-    path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-    unless  => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
+    command  => "export https_proxy=${corp104_codedeploy_agent::http_proxy}; wget https://aws-codedeploy-${corp104_codedeploy_agent::region}.s3.amazonaws.com/latest/install -O ${corp104_codedeploy_agent::install_tmp}",
+    path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+    unless   => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
   }
   file { $corp104_codedeploy_agent::install_tmp:
     ensure    => file,
