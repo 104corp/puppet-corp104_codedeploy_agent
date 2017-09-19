@@ -1,19 +1,14 @@
 require 'beaker-rspec'
+require 'beaker/puppet_install_helper'
+require 'beaker/module_install_helper'
 
-# Install Puppet agent on all hosts
-install_puppet_agent_on(hosts, {})
+run_puppet_install_helper
+install_module_on(hosts)
+install_module_dependencies_on(hosts)
+
+UNSUPPORTED_PLATFORMS = [ "Darwin", "windows" ]
 
 RSpec.configure do |c|
+  # Readable test descriptions
   c.formatter = :documentation
-  module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-
-  c.before :suite do
-    # Install module to all hosts
-    install_dev_puppet_module(source: module_root)
-
-    # Install dependencies
-    hosts.each do |host|
-      on(host, puppet('module', 'install', 'puppetlabs-ruby'))
-    end
-  end
 end

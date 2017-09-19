@@ -1,5 +1,6 @@
 fixtures:
   repositories:
     "ruby": "https://github.com/puppetlabs/puppetlabs-ruby"
+    "corp104_rvm": "https://github.com/104corp/puppet-corp104_rvm"
   symlinks:
     "corp104_codedeploy_agent": "#{source_dir}"
