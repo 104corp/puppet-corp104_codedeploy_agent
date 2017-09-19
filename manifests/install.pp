@@ -1,14 +1,16 @@
 class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
 
   # fix puppetlabs support Ubuntu 16.04
-  case $facts['os']['release']['major'] {
-    '16.04': {
+  if $facts['os']['name'] == 'Ubuntu' {
+    if $facts['os']['release']['major'] == '16.04' {
       class { 'ruby':
         rubygems_package => 'rubygems-integration',
       }
     }
-    default: {
-      include 'ruby'
+  }
+  elsif $facts['os']['name'] == 'CentOS' {
+    if $facts['os']['release']['major'] == '5' or '6' {
+      include 'corp104_rvm'
     }
   }
 
