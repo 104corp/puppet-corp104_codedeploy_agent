@@ -40,14 +40,6 @@ class { 'corp104_codedeploy_agent':
 }
 ```
 
-### codedeploy-agent support Proxy.
-
-```puppet
-class { 'corp104_codedeploy_agent':
-  proxy_uri => 'http://change.proxy.com:3128',
-}
-```
-
 ### Configure codedeploy.onpremises.yml
 ```puppet
 class { 'corp104_codedeploy_agent': }
