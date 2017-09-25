@@ -1,6 +1,6 @@
 class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
 
-  # fix puppetlabs support Ubuntu 16.04
+  # fix puppetlabs support ruby
   if $facts['os']['name'] == 'Ubuntu' {
     if $facts['os']['release']['major'] == '16.04' {
       class { 'ruby':
@@ -12,6 +12,9 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
     if $facts['os']['release']['major'] == '5' or '6' {
       include 'corp104_rvm'
     }
+  }
+  else {
+    include 'ruby'
   }
 
   exec { 'download_codedeploy-agent':
