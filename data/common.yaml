@@ -1,4 +1,5 @@
 corp104_codedeploy_agent::http_proxy: ~
+corp104_codedeploy_agent::ruby_version: '2.3.4'
 corp104_codedeploy_agent::region: 'ap-northeast-1'
 corp104_codedeploy_agent::install_tmp: '/tmp/install_codedeploy'
 corp104_codedeploy_agent::codedeployagent_yml: '/etc/codedeploy-agent/conf/codedeployagent.yml'

@@ -44,6 +44,7 @@
 #
 class corp104_codedeploy_agent (
   Optional[String] $http_proxy,
+  String $ruby_version,
   String $region,
   String $install_tmp,
   Boolean $log_aws_wire,

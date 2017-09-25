@@ -10,7 +10,23 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
   }
   elsif $facts['os']['name'] == 'CentOS' {
     if $facts['os']['release']['major'] == '5' or '6' {
-      include 'corp104_rvm'
+      if $corp104_codedeploy_agent::http_proxy {
+        class { 'corp104_rvm':
+          ruby_version => '2.3',
+          http_proxy   => $corp104_codedeploy_agent::http_proxy,
+        }
+      }
+      else {
+        class { 'corp104_rvm': ruby_version => $corp104_codedeploy_agent::ruby_version }
+      }
+
+      # AWS CodeDeploy needs Ruby version 2.0 or above to be installed for root under /usr/bin
+      # Please install Ruby 2.x for user root
+      exec { 'link-ruby':
+        command => "ln -fs /usr/local/rvm/rubies/ruby-${$corp104_codedeploy_agent::ruby_version}/bin/ruby /usr/bin/ruby",
+        path    => '/usr/bin:/bin',
+        unless  => 'test -f /usr/bin/ruby',
+      }
     }
   }
   else {

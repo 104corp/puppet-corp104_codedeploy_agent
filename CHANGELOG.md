@@ -1,3 +1,7 @@
+## 2017-09-25 - Release 1.0.3
+
+  - support CentOS 5/6.
+
 ## 2017-08-09 - Release 1.0.2
 
   - Fix hiera data not use alias function.
