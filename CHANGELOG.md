@@ -1,4 +1,4 @@
-## 2017-09-25 - Release 1.0.3
+## 2017-09-25 - Release ~1.0.4
 
   - support CentOS 5/6.
 
