@@ -8,6 +8,7 @@ class corp104_codedeploy_agent::onpremises (
     owner   => 'root',
     group   => 'root',
     require => Class['corp104_codedeploy_agent::install'],
+    notify  => Class['corp104_codedeploy_agent::service'],
   }
 
   file { $corp104_codedeploy_agent::codedeploy_onpremises_yml:

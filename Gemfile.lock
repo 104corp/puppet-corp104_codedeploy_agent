@@ -471,7 +471,7 @@ DEPENDENCIES
   beaker-pe
   beaker-rspec
   fast_gettext
-  puppet
+  puppet (~> 5.0)
   puppet-module-posix-default-r2.3
   puppet-module-posix-dev-r2.3
   puppet-module-posix-system-r2.3

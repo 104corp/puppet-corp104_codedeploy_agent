@@ -1,3 +1,7 @@
+## 2017-11-03 - Release 1.1.0
+
+  - fix modify codedeploy.onpremises.yml notify service refresh.
+
 ## 2017-09-25 - Release ~1.0.4
 
   - support CentOS 5/6.
@@ -6,6 +10,7 @@
 
   - Fix hiera data not use alias function.
   - add new line of end at codedeployagent.yml and codedeploy.onpremises.yml.
+
 ## 2017-08-08 - Release 1.0.1
 
 Fix onpremises template.
