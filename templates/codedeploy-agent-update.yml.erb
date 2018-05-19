@@ -1,0 +1,12 @@
+# Managed by Puppet. Changes will be lost!
+# Cron that starts once every hour or on reboot, which updates codedeploy-agent.
+# This cron file has been fuzzed to run after <%= scope.call_function('fqdn_rand', ['60']) %>:<%= scope.call_function('fqdn_rand', ['24']) %>:<%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %> every hour.
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+<% if @http_proxy -%>
+<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) -%>; /opt/codedeploy-agent/bin/update --upgrade --proxy '<%= @http_proxy -%>' <%= @package_type %>
+@reboot root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/update --sanity-check --proxy '<%= @http_proxy -%>' <%= @package_type -%>
+<% else -%>
+<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/update --upgrade <%= @package_type %>
+@reboot root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/update --sanity-check <%= @package_type %>
+<% end %>

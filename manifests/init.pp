@@ -58,6 +58,7 @@ class corp104_codedeploy_agent (
   Optional[String] $proxy_uri,
   Integer $max_revisions,
   String $codedeploy_onpremises_yml,
+  String $codedeploy_agent_update_yml,
   String $service_ensure,
   Boolean $service_enable,
   String $service_name,

@@ -10,4 +10,9 @@ class corp104_codedeploy_agent::config inherits corp104_codedeploy_agent {
     ensure  => file,
     content => template("${module_name}/codedeployagent.yml.erb")
   }
+
+  file { $corp104_codedeploy_agent::codedeploy_agent_update_yml:
+    ensure  => file,
+    content => template("${module_name}/codedeploy-agent-update.yml.erb")
+  }
 }
