@@ -1,3 +1,7 @@
+## 2018-05-20 - Release 1.2.0
+
+  - add codedeploy-agent-update manage.
+
 ## 2017-11-03 - Release 1.1.0
 
   - fix modify codedeploy.onpremises.yml notify service refresh.
