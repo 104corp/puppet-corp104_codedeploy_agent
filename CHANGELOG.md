@@ -1,3 +1,7 @@
+## 2018-05-20 - Release 1.2.1
+
+  - fix dependency cron.d.
+
 ## 2018-05-20 - Release 1.2.0
 
   - add codedeploy-agent-update manage.
