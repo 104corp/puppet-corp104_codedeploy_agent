@@ -4,9 +4,9 @@
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 <% if @http_proxy -%>
-<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) -%>; /opt/codedeploy-agent/bin/install --upgrade --proxy '<%= @http_proxy -%>' <%= @package_type %>
+<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) -%>; /opt/codedeploy-agent/bin/install --proxy '<%= @http_proxy -%>' <%= @package_type %>
 @reboot root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/install --sanity-check --proxy '<%= @http_proxy -%>' <%= @package_type -%>
 <% else -%>
-<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/install --upgrade <%= @package_type %>
+<%= scope.call_function('fqdn_rand', ['60']) %> <%= scope.call_function('fqdn_rand', ['24']) %> * * * root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/install <%= @package_type %>
 @reboot root /bin/sleep <%= scope.call_function('fqdn_rand', ['60', 'codedeploy']) %>; /opt/codedeploy-agent/bin/install --sanity-check <%= @package_type %>
 <% end %>
