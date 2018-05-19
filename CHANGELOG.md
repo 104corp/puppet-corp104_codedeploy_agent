@@ -1,3 +1,7 @@
+## 2018-05-20 - Release 1.2.2
+
+  - fix when old version not have update.
+  
 ## 2018-05-20 - Release 1.2.1
 
   - fix dependency cron.d.

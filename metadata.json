@@ -1,7 +1,7 @@
 {
   "name": "104corp-corp104_codedeploy_agent",
   "description": "corp104_codedeploy_agent Module for Debian, Ubuntu, CentOS and RHEL.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "104corp",
   "summary": "Install, deploysm, and configures AWS agent services.",
   "license": "Apache-2.0",
