@@ -51,6 +51,7 @@ class corp104_codedeploy_agent (
   String $log_dir,
   String $pid_dir,
   String $program_name,
+  String $package_type,
   String $root_dir,
   Boolean $verbose,
   Integer $wait_between_runs,
