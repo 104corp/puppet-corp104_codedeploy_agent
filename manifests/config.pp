@@ -11,8 +11,11 @@ class corp104_codedeploy_agent::config inherits corp104_codedeploy_agent {
     content => template("${module_name}/codedeployagent.yml.erb")
   }
 
+  file { '/etc/cron.d': ensure => directory }
+
   file { $corp104_codedeploy_agent::codedeploy_agent_update_yml:
     ensure  => file,
-    content => template("${module_name}/codedeploy-agent-update.yml.erb")
+    content => template("${module_name}/codedeploy-agent-update.yml.erb"),
+    require => File['/etc/cron.d']
   }
 }
