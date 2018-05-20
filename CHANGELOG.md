@@ -1,3 +1,7 @@
+## 2018-05-21 - Release 1.3.0
+
+  - add facter codedeploy_agent_version.
+
 ## 2018-05-20 - Release 1.2.3
 
   - fix dependency cron.d.
