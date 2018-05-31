@@ -1,3 +1,7 @@
+## 2018-05-31 - Release 1.3.0
+
+  - fix metadata summary.
+
 ## 2018-05-21 - Release 1.3.0
 
   - add facter codedeploy_agent_version.
