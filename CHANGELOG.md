@@ -1,4 +1,8 @@
-## 2018-05-31 - Release 1.3.0
+## 2018-10-07 - Release 1.3.2
+
+  - fix when codedeploy-agent not install facter get undef.
+
+## 2018-05-31 - Release 1.3.1
 
   - fix metadata summary.
 
