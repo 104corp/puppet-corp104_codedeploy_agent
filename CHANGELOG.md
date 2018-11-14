@@ -1,3 +1,7 @@
+## 2018-11-14 - Release 1.3.3
+
+  - set ruby version to variable.
+
 ## 2018-10-07 - Release 1.3.2
 
   - fix when codedeploy-agent not install facter get undef.
