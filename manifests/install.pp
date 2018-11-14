@@ -12,7 +12,7 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
     if $facts['os']['release']['major'] == '5' or '6' {
       if $corp104_codedeploy_agent::http_proxy {
         class { 'corp104_rvm':
-          ruby_version => '2.3',
+          ruby_version => $corp104_codedeploy_agent::ruby_version,
           http_proxy   => $corp104_codedeploy_agent::http_proxy,
         }
       }
