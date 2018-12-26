@@ -1,3 +1,7 @@
+## 2018-12-27 - Release 2.0.0
+
+  - support corp104_rvm 2.x version.
+
 ## 2018-11-14 - Release 1.3.3
 
   - set ruby version to variable.
