@@ -46,7 +46,7 @@ group :system_tests do
   gem "puppet-module-posix-system-r#{minor_version}",                            :require => false, :platforms => "ruby"
   gem "puppet-module-win-system-r#{minor_version}",                              :require => false, :platforms => ["mswin", "mingw", "x64_mingw"]
   gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')                  
-  gem "beaker-pe",                                                               :require => false
+  gem "beaker-pe",                                                               :require => true
   gem "beaker-rspec", *location_for(ENV['BEAKER_RSPEC_VERSION'])                
   gem "beaker-hostgenerator", *location_for(ENV['BEAKER_HOSTGENERATOR_VERSION'])
   gem "beaker-abs", *location_for(ENV['BEAKER_ABS_VERSION'] || '~> 0.1')        
