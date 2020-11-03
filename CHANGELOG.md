@@ -1,3 +1,7 @@
+## 2020-10-30 - Release 2.0.1
+
+  - fix custom factor bug. [#1](https://github.com/104corp/puppet-corp104_codedeploy_agent/issues/1)
+
 ## 2018-12-27 - Release 2.0.0
 
   - support corp104_rvm 2.x version.
