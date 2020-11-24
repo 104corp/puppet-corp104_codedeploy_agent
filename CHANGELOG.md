@@ -1,3 +1,7 @@
+## 2020-11-24 - Release 2.0.2
+
+  - disable codedeploy agent auto upgrade with crond by default
+
 ## 2020-10-30 - Release 2.0.1
 
   - fix custom factor bug. [#1](https://github.com/104corp/puppet-corp104_codedeploy_agent/issues/1)
