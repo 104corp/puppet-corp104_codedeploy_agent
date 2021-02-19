@@ -1,6 +1,11 @@
+## 2021-02-19 - Release 2.0.3
+
+  - support custom codedeployagent url to download.
+  - support specific version of the CodeDeploy agent to install.
+
 ## 2020-11-24 - Release 2.0.2
 
-  - disable codedeploy agent auto upgrade with crond by default
+  - disable codedeploy agent auto upgrade with crond by default.
 
 ## 2020-10-30 - Release 2.0.1
 

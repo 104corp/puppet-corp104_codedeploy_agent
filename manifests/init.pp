@@ -43,7 +43,6 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class corp104_codedeploy_agent (
-  Optional[String] $http_proxy,
   String $ruby_version,
   String $region,
   String $install_tmp,
@@ -64,6 +63,9 @@ class corp104_codedeploy_agent (
   String $service_ensure,
   Boolean $service_enable,
   String $service_name,
+  Optional[String] $http_proxy,
+  Optional[String] $codedeployagent_download_url,
+  Optional[String] $codedeployagent_version,
 ){
   contain corp104_codedeploy_agent::install
   contain corp104_codedeploy_agent::config

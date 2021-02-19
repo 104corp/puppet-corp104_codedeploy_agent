@@ -33,9 +33,15 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
     include 'ruby'
   }
 
+  if $corp104_codedeploy_agent::codedeployagent_download_url {
+    $real_download_url = $corp104_codedeploy_agent::codedeployagent_download_url
+  } else {
+    $real_download_url = "https://aws-codedeploy-${corp104_codedeploy_agent::region}.s3.amazonaws.com/latest/install"
+  }
+
   exec { 'download_codedeploy-agent':
     provider => 'shell',
-    command  => "export https_proxy=${corp104_codedeploy_agent::http_proxy}; wget https://aws-codedeploy-${corp104_codedeploy_agent::region}.s3.amazonaws.com/latest/install -O ${corp104_codedeploy_agent::install_tmp}",
+    command  => "export https_proxy=${corp104_codedeploy_agent::http_proxy}; wget ${real_download_url} -O ${corp104_codedeploy_agent::install_tmp}",
     path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
     unless   => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
   }
@@ -48,20 +54,21 @@ class corp104_codedeploy_agent::install inherits corp104_codedeploy_agent {
     notify    => Exec['install_codedeploy-agent'],
   }
 
-  if $corp104_codedeploy_agent::http_proxy {
-    exec { 'install_codedeploy-agent':
-      command => "${corp104_codedeploy_agent::install_tmp} auto --proxy ${corp104_codedeploy_agent::http_proxy}",
-      path    => '/sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin::/usr/sbin',
-      notify  => Service['codedeploy-agent'],
-      unless  => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
-    }
+  if $corp104_codedeploy_agent::http_proxy and $corp104_codedeploy_agent::codedeployagent_version {
+    $install_cmd = "${corp104_codedeploy_agent::install_tmp} auto --proxy ${corp104_codedeploy_agent::http_proxy} --version releases/${corp104_codedeploy_agent::codedeployagent_version}"
+  } elsif $corp104_codedeploy_agent::codedeployagent_version {
+    $install_cmd = "${corp104_codedeploy_agent::install_tmp} auto --version releases/${corp104_codedeploy_agent::codedeployagent_version}"
+  } elsif $corp104_codedeploy_agent::http_proxy {
+    $install_cmd = "${corp104_codedeploy_agent::install_tmp} auto --proxy ${corp104_codedeploy_agent::http_proxy}"
+  } else {
+    $install_cmd = "${corp104_codedeploy_agent::install_tmp} auto "
   }
-  else {
-    exec { 'install_codedeploy-agent':
-      command => "${corp104_codedeploy_agent::install_tmp} auto ",
-      path    => '/sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin::/usr/sbin',
-      notify  => Service['codedeploy-agent'],
-      unless  => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
-    }
+
+  exec { 'install_codedeploy-agent':
+    command => $install_cmd,
+    path    => '/sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin::/usr/sbin',
+    notify  => Service['codedeploy-agent'],
+    unless  => 'test -f /opt/codedeploy-agent/bin/codedeploy-agent',
   }
+
 }
