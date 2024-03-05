@@ -12,6 +12,14 @@
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
+## DEPRECATED
+
+Dear users,
+
+This repository is `no longer actively maintained`, and it will be officially deprecated and removed from Puppet Forge `on January 1, 2025`. We appreciate your support and contributions over the years.
+
+Thank you for being part of our community.
+
 ## Description
 
 The corp104_codedeploy_agent module installs, configures, and manages the corp104_codedeploy_agent service across a range of operating systems and distributions.
